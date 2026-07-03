@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>STARQIA Soluções Contábeis | Contabilidade Estratégica</title>
+<meta name="description" content="STARQIA Soluções Contábeis — transformamos dados contábeis em decisões estratégicas. BPO Financeiro, contabilidade consultiva, DP e planejamento tributário."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --g:#00AA4F;--g2:#007A38;--g3:#4CD87A;
+  --dark:#251B02;--dark2:#1a1300;
+  --ink:#1a1a1a;--light:#f7f6f2;--bone:#fafaf7;
+  --grey:#6b6b6b;--grey2:#444;--rule:rgba(0,0,0,.07);
+  --r:8px;--r2:16px;--r3:28px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Roboto',sans-serif;color:var(--ink);background:#fff;overflow-x:hidden;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-thumb{background:var(--g);}
+img{max-width:100%;display:block;}
+
+/* LOGO SPRITE — imagem 1024x1024, 4 quadrantes 512x512
+   Q1 top-left    = fundo verde   + S escuro
+   Q2 top-right   = fundo escuro  + S verde
+   Q3 bottom-left = fundo escuro  + S branco + barra verde STARQIA ← uso no nav/dark
+   Q4 bottom-right= fundo branco  + S escuro + barra escura         ← uso em fundo claro */
+.logo-sprite{display:block;background-image:url('logo-starqia.png');background-repeat:no-repeat;background-size:200% 200%;overflow:hidden;flex-shrink:0;}
+.logo-dark {background-position:0% 100%;}
+.logo-light{background-position:100% 100%;}
+.logo-green{background-position:0% 0%;}
+.logo-nav  {width:90px;height:90px;}
+.logo-lg   {width:140px;height:140px;}
+.logo-ft   {width:72px;height:72px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--dark);display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:76px;box-shadow:0 2px 20px rgba(0,0,0,.35);transition:box-shadow .3s;}
+.nav-l{display:flex;align-items:center;gap:12px;}
+.nav-brand strong{display:block;font-family:'Roboto Slab',serif;font-weight:700;font-size:16px;color:#fff;letter-spacing:.04em;}
+.nav-brand small{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.38);}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,.72);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s;position:relative;padding-bottom:3px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--g3);transform:scaleX(0);transition:transform .2s;transform-origin:left;}
+.nav-links a:hover{color:#fff;}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-wpp{background:var(--g);color:#fff;font-size:12px;font-weight:700;letter-spacing:.06em;padding:9px 20px;border-radius:var(--r);text-decoration:none;transition:background .2s;white-space:nowrap;}
+.nav-wpp:hover{background:var(--g3);color:var(--dark);}
+.mob-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+.mob-btn span{display:block;width:22px;height:2px;background:#fff;margin:4px 0;}
+
+/* HERO */
+#hero{min-height:100vh;background:url('bg-hero.jpg') center/cover no-repeat;position:relative;display:flex;align-items:center;padding:100px 60px 120px;}
+#hero::before{content:'';position:absolute;inset:0;background:linear-gradient(140deg,rgba(37,27,2,.94) 0%,rgba(37,27,2,.68) 55%,rgba(0,170,79,.18) 100%);}
+.hero-inner{position:relative;z-index:1;max-width:680px;}
+.hero-tag{display:inline-flex;align-items:center;gap:9px;background:rgba(0,170,79,.18);border:1px solid rgba(0,170,79,.4);border-radius:100px;padding:5px 16px;font-size:10px;font-weight:600;letter-spacing:.16em;color:var(--g3);text-transform:uppercase;margin-bottom:28px;animation:fadeUp .7s ease both;}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--g3);animation:pulse 1.5s infinite;}
+h1.hh1{font-family:'Roboto Slab',serif;font-weight:800;font-size:clamp(34px,5.2vw,68px);line-height:1.04;color:#fff;animation:fadeUp .8s ease .1s both;letter-spacing:-.01em;}
+h1.hh1 em{color:var(--g3);font-style:normal;}
+.hrule{width:52px;height:3px;background:var(--g);margin:26px 0;animation:fadeUp .8s ease .18s both;}
+.hero-sub{font-size:16px;font-weight:300;line-height:1.8;color:rgba(255,255,255,.72);animation:fadeUp .9s ease .24s both;max-width:520px;}
+.hero-sub strong{color:#fff;font-weight:600;}
+.hero-acts{display:flex;gap:14px;margin-top:40px;flex-wrap:wrap;animation:fadeUp 1s ease .32s both;}
+.btn-g{background:var(--g);color:#fff;font-weight:700;font-size:13px;letter-spacing:.07em;padding:14px 30px;border-radius:var(--r);text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:7px;}
+.btn-g:hover{background:var(--g3);color:var(--dark);transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,170,79,.35);}
+.btn-ow{border:1.5px solid rgba(255,255,255,.32);color:#fff;font-size:13px;font-weight:500;padding:14px 30px;border-radius:var(--r);text-decoration:none;transition:all .2s;}
+.btn-ow:hover{border-color:#fff;background:rgba(255,255,255,.08);}
+.hero-bottom{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:18px 60px;background:rgba(37,27,2,.72);backdrop-filter:blur(8px);border-top:1px solid rgba(255,255,255,.07);z-index:1;}
+.hero-selos{height:30px;opacity:.65;filter:brightness(0) invert(1);}
+.hero-crc{font-size:11px;font-weight:600;color:rgba(255,255,255,.38);letter-spacing:.08em;text-transform:uppercase;}
+.hero-crc span{color:var(--g3);}
+
+/* STRIP */
+.strip{background:var(--dark2);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.04);}
+.si{padding:34px 26px;text-align:center;border-right:1px solid rgba(255,255,255,.06);}
+.si:last-child{border-right:none;}
+.sv{font-family:'Roboto Slab',serif;font-size:36px;font-weight:800;color:var(--g3);line-height:1;}
+.sl{font-size:12px;color:rgba(255,255,255,.38);margin-top:7px;line-height:1.4;}
+
+/* SECTION */
+section{padding:92px 60px;}
+.stag{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:.22em;color:var(--g);text-transform:uppercase;margin-bottom:14px;}
+.stag::before{content:'';display:block;width:22px;height:2px;background:var(--g);}
+.stag-w{color:var(--g3)!important;}
+.stag-w::before{background:var(--g3)!important;}
+h2.sh2{font-family:'Roboto Slab',serif;font-weight:800;font-size:clamp(24px,3.3vw,44px);line-height:1.08;letter-spacing:-.01em;}
+h2.sh2 em{color:var(--g);font-style:normal;}
+h2.sh2-w{color:#fff;}
+h2.sh2-w em{color:var(--g3);}
+.sdesc{font-size:15px;font-weight:300;line-height:1.85;color:var(--grey);margin-top:12px;max-width:540px;}
+
+/* PROPÓSITO */
+#proposito{background:var(--dark);color:#fff;position:relative;overflow:hidden;}
+#proposito::before{content:'';position:absolute;top:-80px;right:-60px;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(0,170,79,.1) 0%,transparent 70%);pointer-events:none;}
+.pg{display:grid;grid-template-columns:1fr 1.4fr;gap:76px;align-items:start;}
+.pleft{position:sticky;top:96px;}
+.plm{margin-bottom:28px;}
+.pcausa{margin-top:28px;padding:24px;background:rgba(0,170,79,.1);border:1px solid rgba(0,170,79,.25);border-radius:var(--r2);}
+.pcausa-lbl{font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--g3);text-transform:uppercase;margin-bottom:9px;}
+.pcausa p{font-family:'Roboto Slab',serif;font-size:14px;font-weight:600;line-height:1.55;color:rgba(255,255,255,.9);font-style:italic;}
+.pright{display:flex;flex-direction:column;}
+.pb{padding:26px 0;border-bottom:1px solid rgba(255,255,255,.07);}
+.pb:last-child{border-bottom:none;}
+.pbn{font-size:10px;font-weight:700;color:var(--g);letter-spacing:.15em;text-transform:uppercase;margin-bottom:9px;}
+.pb h4{font-family:'Roboto Slab',serif;font-size:17px;font-weight:700;color:#fff;margin-bottom:9px;}
+.pb p{font-size:14px;font-weight:300;color:rgba(255,255,255,.58);line-height:1.8;}
+.pb p strong{color:#fff;font-weight:500;}
+.pilares{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px;}
+.pilar{padding:22px 18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r2);text-align:center;transition:all .25s;}
+.pilar:hover{background:rgba(0,170,79,.1);border-color:rgba(0,170,79,.3);}
+.pilar-icon{font-size:26px;margin-bottom:10px;}
+.pilar h4{font-family:'Roboto Slab',serif;font-size:13px;font-weight:700;color:#fff;margin-bottom:5px;}
+.pilar p{font-size:11px;color:rgba(255,255,255,.42);line-height:1.5;}
+
+/* SOBRE */
+#sobre{background:var(--light);}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:52px;}
+.simg{position:relative;}
+.simg img{border-radius:var(--r3);box-shadow:0 22px 60px rgba(0,0,0,.12);width:100%;}
+.sbadge{position:absolute;bottom:-18px;right:-18px;background:var(--g);color:#fff;padding:18px 22px;border-radius:var(--r2);text-align:center;box-shadow:0 10px 28px rgba(0,170,79,.3);}
+.sbv{font-family:'Roboto Slab',serif;font-size:32px;font-weight:800;line-height:1;}
+.sbl{font-size:11px;opacity:.85;margin-top:3px;line-height:1.4;}
+.stxt p{font-size:15px;font-weight:300;line-height:1.9;color:var(--grey2);margin-top:16px;}
+.stxt p strong{color:var(--ink);font-weight:600;}
+.scrc{display:inline-flex;align-items:center;gap:9px;margin-top:22px;padding:11px 16px;background:rgba(0,170,79,.07);border:1px solid rgba(0,170,79,.2);border-radius:var(--r);font-size:11px;color:var(--g2);font-weight:600;letter-spacing:.04em;}
+.scrc::before{content:'✓';color:var(--g);font-weight:700;}
+
+/* SERVIÇOS */
+#servicos{background:#fff;}
+.srv-intro{display:grid;grid-template-columns:1fr 2fr;gap:72px;margin-top:52px;align-items:start;}
+.srv-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.scard{background:var(--light);border-radius:var(--r2);padding:28px 24px;border:1px solid var(--rule);transition:all .3s;position:relative;overflow:hidden;}
+.scard::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--g);transform:scaleX(0);transition:transform .3s;transform-origin:left;}
+.scard:hover{transform:translateY(-5px);box-shadow:0 18px 48px rgba(0,0,0,.09);background:#fff;}
+.scard:hover::before{transform:scaleX(1);}
+.sc-ico{width:52px;height:52px;background:rgba(0,170,79,.08);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:1px solid rgba(0,170,79,.14);padding:10px;}
+.sc-ico img{width:100%;height:100%;object-fit:contain;}
+.scard h3{font-family:'Roboto Slab',serif;font-size:16px;font-weight:700;margin-bottom:9px;}
+.scard p{font-size:13px;color:var(--grey);line-height:1.6;}
+.slink{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:11px;font-weight:700;color:var(--g);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:gap .2s;}
+.slink:hover{gap:10px;}
+
+/* GESTÃO */
+#gestao{background:var(--dark);color:#fff;}
+.gg{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:52px;}
+.gimg img{border-radius:var(--r2);box-shadow:0 22px 60px rgba(0,0,0,.4);width:100%;}
+.gfs{display:flex;flex-direction:column;gap:14px;}
+.gf{display:flex;gap:16px;align-items:flex-start;padding:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:var(--r2);transition:all .25s;}
+.gf:hover{background:rgba(0,170,79,.1);border-color:rgba(0,170,79,.3);}
+.gfico{width:42px;height:42px;flex-shrink:0;}
+.gfico img{width:100%;height:100%;object-fit:contain;}
+.gf h4{font-family:'Roboto Slab',serif;font-size:14px;font-weight:700;margin-bottom:4px;}
+.gf p{font-size:12px;color:rgba(255,255,255,.48);line-height:1.6;}
+
+/* BPO */
+#bpo{background:var(--g);padding:76px 60px;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.bt h2{font-family:'Roboto Slab',serif;font-size:clamp(24px,3vw,40px);font-weight:800;color:#fff;line-height:1.1;}
+.bt p{font-size:15px;color:rgba(255,255,255,.8);line-height:1.8;margin-top:12px;font-weight:300;}
+.bt a{display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--g);font-weight:700;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:13px 28px;border-radius:var(--r);text-decoration:none;margin-top:24px;transition:all .2s;}
+.bt a:hover{background:var(--dark);color:#fff;transform:translateY(-2px);}
+.bcards{display:flex;flex-direction:column;gap:11px;}
+.bcard{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);border-radius:var(--r2);padding:16px 20px;display:flex;gap:13px;align-items:flex-start;transition:background .2s;}
+.bcard:hover{background:rgba(255,255,255,.22);}
+.bci{font-size:20px;flex-shrink:0;margin-top:2px;}
+.bcard h4{font-size:13px;font-weight:600;color:#fff;margin-bottom:2px;}
+.bcard p{font-size:11px;color:rgba(255,255,255,.68);line-height:1.5;}
+
+/* FOLHA */
+#folha{background:var(--light);}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-top:52px;}
+.fimg img{border-radius:var(--r2);box-shadow:0 18px 48px rgba(0,0,0,.1);width:100%;}
+.fi-list{display:flex;flex-direction:column;gap:10px;margin-top:22px;}
+.fi{display:flex;gap:12px;align-items:flex-start;padding:12px 16px;background:#fff;border-radius:var(--r);border:1px solid var(--rule);transition:all .2s;}
+.fi:hover{border-color:rgba(0,170,79,.22);}
+.fi-d{width:7px;height:7px;border-radius:50%;background:var(--g);flex-shrink:0;margin-top:5px;}
+.fi p{font-size:13px;color:var(--grey2);line-height:1.5;}
+
+/* ABERTURA */
+#abertura{background:#fff;}
+.abg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:52px;}
+.acard{padding:28px 22px;border-radius:var(--r2);border:1px solid var(--rule);transition:all .3s;text-align:center;background:var(--light);}
+.acard:hover{border-color:var(--g);box-shadow:0 14px 42px rgba(0,170,79,.08);transform:translateY(-4px);background:#fff;}
+.anum{font-family:'Roboto Slab',serif;font-size:40px;font-weight:800;color:rgba(0,170,79,.12);line-height:1;margin-bottom:12px;}
+.acard h3{font-family:'Roboto Slab',serif;font-size:16px;font-weight:700;margin-bottom:9px;}
+.acard p{font-size:12px;color:var(--grey);line-height:1.65;}
+
+/* DIFERENCIAIS */
+#diferenciais{background:var(--dark);color:#fff;}
+.difg{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:52px;}
+.dcard{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r2);padding:30px 20px;text-align:center;transition:all .3s;}
+.dcard:hover{border-color:rgba(0,170,79,.35);background:rgba(0,170,79,.08);transform:translateY(-4px);}
+.dico{width:60px;height:60px;border-radius:50%;background:rgba(0,170,79,.1);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;border:2px solid rgba(0,170,79,.25);padding:12px;}
+.dico img{width:100%;height:100%;object-fit:contain;}
+.dcard h4{font-family:'Roboto Slab',serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:7px;}
+.dcard p{font-size:12px;color:rgba(255,255,255,.42);line-height:1.6;}
+
+/* CONTATO */
+#contato{background:var(--dark);background-image:url('bg-contato.png');background-size:cover;background-position:center;position:relative;}
+#contato::before{content:'';position:absolute;inset:0;background:rgba(37,27,2,.93);}
+.ci-wrap{position:relative;z-index:1;}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:64px;margin-top:52px;}
+.cilist{display:flex;flex-direction:column;gap:14px;}
+.ci{display:flex;gap:13px;align-items:flex-start;padding:16px 20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r2);transition:all .2s;}
+.ci:hover{background:rgba(0,170,79,.1);border-color:rgba(0,170,79,.3);}
+.ci-ico{font-size:18px;flex-shrink:0;margin-top:2px;}
+.ci h4{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:4px;}
+.ci a,.ci p{font-size:13px;color:#fff;text-decoration:none;line-height:1.5;}
+.ci a:hover{color:var(--g3);}
+.cform{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:var(--r2);padding:32px;}
+.cform h3{font-family:'Roboto Slab',serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:22px;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;}
+.fg3{display:flex;flex-direction:column;gap:4px;margin-bottom:12px;}
+.fg3 label{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.38);}
+.fg3 input,.fg3 select,.fg3 textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);border-radius:var(--r);padding:10px 13px;color:#fff;font-size:13px;font-family:'Roboto',sans-serif;outline:none;transition:border-color .2s;}
+.fg3 input:focus,.fg3 select:focus,.fg3 textarea:focus{border-color:var(--g);}
+.fg3 input::placeholder,.fg3 textarea::placeholder{color:rgba(255,255,255,.22);}
+.fg3 select option{background:var(--dark);}
+.fg3 textarea{resize:vertical;min-height:80px;}
+.cfbtn{width:100%;background:var(--g);color:#fff;font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:13px;border-radius:var(--r);border:none;cursor:pointer;font-family:'Roboto',sans-serif;transition:all .2s;}
+.cfbtn:hover{background:var(--g3);color:var(--dark);}
+.mapa{margin-top:52px;border-radius:var(--r2);overflow:hidden;border:1px solid rgba(255,255,255,.07);position:relative;z-index:1;}
+
+/* FOOTER */
+footer{background:var(--dark2);border-top:1px solid rgba(255,255,255,.05);}
+.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:52px;padding:52px 60px;}
+.fb p{font-size:12px;color:rgba(255,255,255,.32);line-height:1.8;margin-top:14px;font-weight:300;max-width:240px;}
+.fc h4{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g3);margin-bottom:16px;}
+.fc ul{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.fc ul li a{font-size:12px;color:rgba(255,255,255,.38);text-decoration:none;transition:color .2s;}
+.fc ul li a:hover{color:#fff;}
+.social{display:flex;gap:9px;margin-top:16px;}
+.soc{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:14px;transition:background .2s;}
+.soc:hover{background:var(--g);}
+.fbot{padding:16px 60px;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center;}
+.fbot p{font-size:10px;color:rgba(255,255,255,.18);letter-spacing:.04em;}
+
+/* WPP FLOAT */
+.wf{position:fixed;bottom:22px;right:22px;z-index:99;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:22px;box-shadow:0 7px 22px rgba(37,211,102,.45);transition:transform .2s;animation:bounceIn .8s ease 1.5s both;}
+.wf:hover{transform:scale(1.1);}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+@keyframes bounceIn{0%{opacity:0;transform:scale(.3);}60%{transform:scale(1.08);}100%{opacity:1;transform:scale(1);}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:1060px){
+  nav{padding:0 22px;}
+  .nav-links{display:none;}
+  .mob-btn{display:block;}
+  section{padding:68px 22px;}
+  #hero{padding:96px 22px 110px;}
+  .hero-bottom{padding:14px 22px;}
+  #bpo{padding:56px 22px;grid-template-columns:1fr;gap:36px;}
+  .strip{grid-template-columns:1fr 1fr;}
+  .pg,.sg,.gg,.fg2,.cg{grid-template-columns:1fr;gap:36px;}
+  .srv-intro{grid-template-columns:1fr;gap:36px;}
+  .abg{grid-template-columns:1fr 1fr;}
+  .difg{grid-template-columns:1fr 1fr;}
+  .pilares{grid-template-columns:1fr;}
+  .ftop{grid-template-columns:1fr 1fr;gap:32px;padding:40px 22px;}
+  .fbot{padding:14px 22px;flex-direction:column;gap:5px;text-align:center;}
+  .sbadge{right:0;bottom:-10px;}
+  .frow{grid-template-columns:1fr;}
+  .pleft{position:static;}
+}
+@media(max-width:600px){
+  .abg{grid-template-columns:1fr;}
+  .difg{grid-template-columns:1fr 1fr;}
+  .srv-grid{grid-template-columns:1fr;}
+  .ftop{grid-template-columns:1fr;}
+  .logo-nav{width:68px;height:68px;}
+}
+</style>
+</head>
+<body>
+
+<a href="https://wa.me/5511981590299" target="_blank" class="wf" title="WhatsApp STARQIA">💬</a>
+
+<!-- NAV -->
+<nav id="mnav">
+  <div class="nav-l">
+    <a href="#hero" style="display:flex;align-items:center;">
+      <img src="logo-nav.png" alt="STARQIA Soluções Contábeis" style="height:52px;width:auto;display:block;"/>
+    </a>
+  </div>
+  <ul class="nav-links" id="nmenu">
+    <li><a href="#proposito">Propósito</a></li>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#gestao">Contábil</a></li>
+    <li><a href="#folha">DP</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <a href="https://wa.me/5511981590299" target="_blank" class="nav-wpp">💬 WhatsApp</a>
+  <button class="mob-btn" id="mbtn"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Contabilidade Estratégica · starqia.com</div>
+    <h1 class="hh1">Transformamos dados<br>contábeis em<br><em>decisões estratégicas.</em></h1>
+    <div class="hrule"></div>
+    <p class="hero-sub">Somos mais do que contadores — somos <strong>parceiros estratégicos e companheiros de jornada</strong>. Combinamos tecnologia, automação e relacionamento humano genuíno para impulsionar o crescimento do seu negócio.</p>
+    <div class="hero-acts">
+      <a href="#contato" class="btn-g">Quero ser cliente</a>
+      <a href="#proposito" class="btn-ow">Nossa causa</a>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <img class="hero-selos" src="selos.webp" alt="Certificações STARQIA"/>
+    <div class="hero-crc">Contabilidade Estratégica · <span>Jundiaí — SP</span></div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="si reveal"><div class="sv">100%</div><div class="sl">digital e integrado<br>aos seus sistemas</div></div>
+  <div class="si reveal"><div class="sv">360°</div><div class="sl">visão financeira<br>e contábil em tempo real</div></div>
+  <div class="si reveal"><div class="sv">C-Level</div><div class="sl">consultoria no nível<br>do seu negócio</div></div>
+  <div class="si reveal"><div class="sv">SLA</div><div class="sl">acordo de nível<br>de serviço definido</div></div>
+</div>
+
+<!-- PROPÓSITO -->
+<section id="proposito">
+  <div class="pg">
+    <div class="pleft">
+      <div class="plm"><img src="logo-vertical.png" alt="STARQIA" style="height:180px;width:auto;display:block;"/></div>
+      <div class="stag stag-w reveal">Nossa Causa Justa</div>
+      <h2 class="sh2 sh2-w reveal">Por que a<br><em>STARQIA</em><br>existe.</h2>
+      <div class="pcausa reveal">
+        <div class="pcausa-lbl">Propósito · Simon Sinek</div>
+        <p>"Existimos para ser mais do que contadores — somos parceiros estratégicos e companheiros de jornada. Transformamos números em conhecimento e, acima de tudo, em relações de confiança."</p>
+      </div>
+    </div>
+    <div class="pright">
+      <div class="pb reveal">
+        <div class="pbn">01 · Origem</div>
+        <h4>A contabilidade que sempre sonhei fazer</h4>
+        <p>Sempre admiramos a contabilidade por suas infinitas competências. Nosso sonho sempre foi ser a equipe que <strong>lê, analisa e apresenta relatórios gerenciais</strong> — o parceiro que apoia decisões estratégicas. O "feijão com arroz" da contabilidade tradicional serve ao Fisco, não ao empresário. Por isso construímos algo diferente.</p>
+      </div>
+      <div class="pb reveal">
+        <div class="pbn">02 · Transformação</div>
+        <h4>Processamento rápido. Consultoria real.</h4>
+        <p>O processamento fiscal deve acontecer <strong>o mais rápido e automatizado possível</strong>, para que sobre tempo e energia para o que realmente importa: consultoria, relacionamento e estratégia. Tecnologia libera as pessoas certas para fazer o trabalho certo.</p>
+      </div>
+      <div class="pb reveal">
+        <div class="pbn">03 · Relacionamento</div>
+        <h4>50% do valor percebido está na relação</h4>
+        <p>A percepção de valor que um cliente tem de uma empresa contábil está em quanto a equipe consegue <strong>acompanhá-lo, escutá-lo e ser seu parceiro de negócio</strong>. Atuamos com profissionalismo e maturidade técnica — independentemente da complexidade da demanda. Não há cliente que chegue até nós sem encontrar direcionamento claro e solução real.</p>
+      </div>
+      <div class="pb reveal">
+        <div class="pbn">04 · Missão</div>
+        <h4>A força motriz dos seus números</h4>
+        <p>A STARQIA é a <strong>força motriz que, usando as ferramentas de contabilidade e gestão, auxilia empresários a tomarem decisões estratégicas com base em dados reais</strong>. Não vendemos serviços. Entregamos domínio, clareza e crescimento sustentável.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pilares reveal">
+    <div class="pilar">
+      <div class="pilar-icon"><img src="ico-administracao.png" alt="" style="width:48px;height:48px;object-fit:contain;"/></div>
+      <h4>Tecnologia & IA</h4><p>Automação eliminando trabalho manual, liberando inteligência humana para o que importa.</p>
+    </div>
+    <div class="pilar">
+      <div class="pilar-icon"><img src="ico-relacionamento.png" alt="" style="width:48px;height:48px;object-fit:contain;"/></div>
+      <h4>Relacionamento Genuíno</h4><p>Escuta ativa, empatia real. Seu contador que conhece você pelo nome, não pelo CNPJ.</p>
+    </div>
+    <div class="pilar">
+      <div class="pilar-icon"><img src="ico-estrategia.png" alt="" style="width:48px;height:48px;object-fit:contain;"/></div>
+      <h4>Decisão por Dados</h4><p>Relatórios gerenciais que transformam números em insights e estratégias práticas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre">
+  <div class="stag reveal">Sobre a STARQIA</div>
+  <h2 class="sh2 reveal">Contabilidade que vai<br><em>além das obrigações.</em></h2>
+  <div class="sg">
+    <div class="simg reveal">
+      <img src="foto-sobre.jpg" alt="STARQIA Soluções Contábeis"/>
+      <div class="sbadge"><div class="sbv">+10</div><div class="sbl">anos de experiência<br>em contabilidade</div></div>
+    </div>
+    <div class="stxt reveal">
+      <p>A <strong>STARQIA Soluções Contábeis</strong> nasceu da convicção de que contabilidade de verdade vai muito além do cumprimento de obrigações. Desde o início, construímos uma operação <strong>digital, consultiva e orientada a resultado</strong> — onde cada entrega gera inteligência real para o empresário.</p>
+      <p>Temos ampla experiência com empresas dos setores de <strong>segurança privada, terceirização e facilities, tecnologia e exportação de serviços, saúde e serviços médicos, comércio e indústria</strong> — e estrutura para atender qualquer empresa, de qualquer lugar do Brasil, 100% online.</p>
+      <p>Implementamos CRM, automações com IA, BPO Financeiro e consultoria estratégica — um modelo em que a contabilidade é a <strong>força motriz por trás das decisões empresariais</strong>, não um custo burocrático a ser tolerado.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="stag reveal">Soluções</div>
+  <h2 class="sh2 reveal">Tudo que sua empresa precisa<br>em <em>um parceiro só.</em></h2>
+  <div class="srv-intro">
+    <p class="sdesc reveal">Do processamento fiscal automatizado à consultoria estratégica — entregamos inteligência contábil com tecnologia, método e clareza.</p>
+    <div class="srv-grid">
+      <div class="scard reveal">
+        <div class="sc-ico"><img src="ico-backoffice.png" alt="Gestão Contábil"/></div>
+        <h3>Gestão Contábil</h3><p>Escrituração, balancetes, DRE e relatórios gerenciais para tomada de decisão estratégica.</p><a href="#gestao" class="slink">Ver mais →</a>
+      </div>
+      <div class="scard reveal">
+        <div class="sc-ico"><img src="ico-rh.png" alt="Folha de Pagamento e DP"/></div>
+        <h3>Folha de Pagamento & DP</h3><p>Processamento de folha, eSocial, admissões, demissões e toda a complexidade trabalhista.</p><a href="#folha" class="slink">Ver mais →</a>
+      </div>
+      <div class="scard reveal">
+        <div class="sc-ico"><img src="ico-juridico.png" alt="Abertura de Empresas"/></div>
+        <h3>Abertura de Empresas</h3><p>MEI, LTDA, JUCESP — abrimos, regularizamos e enquadramos sua empresa com agilidade.</p><a href="#abertura" class="slink">Ver mais →</a>
+      </div>
+      <div class="scard reveal">
+        <div class="sc-ico"><img src="ico-tributacao.png" alt="Planejamento Tributário"/></div>
+        <h3>Planejamento Tributário</h3><p>Análise de regime, Fator R, ISS, IRPF e estratégias para redução legal da carga fiscal.</p><a href="#contato" class="slink">Solicitar →</a>
+      </div>
+      <div class="scard reveal">
+        <div class="sc-ico"><img src="ico-planejamento.png" alt="Obrigações Fiscais"/></div>
+        <h3>Obrigações Fiscais</h3><p>SPED, ECF, EFD, DCTF, DEFIS — todas as obrigações entregues no prazo, sem erros.</p><a href="#contato" class="slink">Fale conosco →</a>
+      </div>
+      <div class="scard reveal">
+        <div class="sc-ico"><img src="ico-financeiro.png" alt="BPO Financeiro"/></div>
+        <h3>BPO Financeiro</h3><p>Operamos seu departamento financeiro com tecnologia e nível gerencial — sem custo CLT.</p><a href="https://bpo.starqia.com" target="_blank" class="slink">Acessar BPO →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GESTÃO CONTÁBIL -->
+<section id="gestao">
+  <div class="stag stag-w reveal">Gestão Contábil</div>
+  <h2 class="sh2 sh2-w reveal">Contabilidade que <em>fala<br>a língua</em> do seu negócio.</h2>
+  <div class="gg">
+    <div class="gimg reveal"><img src="foto-gestao.jpg" alt="Gestão contábil estratégica"/></div>
+    <div class="gfs">
+      <div class="gf reveal"><div class="gfico"><img src="srv-acompanhamento.png" alt=""/></div><div><h4>Acompanhamento Contínuo</h4><p>Reuniões periódicas de análise — seu contador como consultor de negócios real.</p></div></div>
+      <div class="gf reveal"><div class="gfico"><img src="srv-movimentacao.png" alt=""/></div><div><h4>Movimentação Financeira</h4><p>Escrituração completa e conciliação integrada aos seus sistemas e ERPs.</p></div></div>
+      <div class="gf reveal"><div class="gfico"><img src="srv-juros.png" alt=""/></div><div><h4>Pare de Pagar Juros</h4><p>Identificamos passivos tributários que podem ser regularizados e eliminados.</p></div></div>
+      <div class="gf reveal"><div class="gfico"><img src="srv-fluxo.png" alt=""/></div><div><h4>Fluxo de Caixa & DRE</h4><p>Visão real da posição financeira e DRE gerencial para decisões estratégicas.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BPO -->
+<div id="bpo">
+  <div class="bt">
+    <h2>BPO Financeiro: seu departamento financeiro no nível certo.</h2>
+    <p>Implantamos, estruturamos e operamos soluções financeiras com tecnologia e profissionais de nível gerencial. Mais inteligente e mais econômico que contratar via CLT.</p>
+    <a href="https://bpo.starqia.com" target="_blank">Conhecer o BPO Financeiro →</a>
+  </div>
+  <div class="bcards">
+    <div class="bcard"><div class="bci"><img src="ico-financeiro.png" alt="" style="width:32px;height:32px;object-fit:contain;filter:brightness(0) invert(1);"/></div><div><h4>Contas a Pagar & Receber</h4><p>Gestão completa das obrigações financeiras diárias.</p></div></div>
+    <div class="bcard"><div class="bci"><img src="ico-administracao.png" alt="" style="width:32px;height:32px;object-fit:contain;filter:brightness(0) invert(1);"/></div><div><h4>Conciliação Bancária</h4><p>Controle diário de extratos e posição de caixa.</p></div></div>
+    <div class="bcard"><div class="bci"><img src="ico-backoffice.png" alt="" style="width:32px;height:32px;object-fit:contain;filter:brightness(0) invert(1);"/></div><div><h4>Dashboard & KPIs</h4><p>Indicadores financeiros em tempo real para decisão ágil.</p></div></div>
+    <div class="bcard"><div class="bci"><img src="ico-planejamento.png" alt="" style="width:32px;height:32px;object-fit:contain;filter:brightness(0) invert(1);"/></div><div><h4>NFSe & Boletos</h4><p>Emissão e envio automático de notas e cobranças.</p></div></div>
+  </div>
+</div>
+
+<!-- FOLHA -->
+<section id="folha">
+  <div class="stag reveal">Departamento Pessoal</div>
+  <h2 class="sh2 reveal">Folha de Pagamento e DP<br>sem <em>complicação.</em></h2>
+  <div class="fg2">
+    <div class="fimg reveal"><img src="foto-folha.jpg" alt="Departamento Pessoal STARQIA"/></div>
+    <div class="reveal">
+      <p class="sdesc">Legislação trabalhista complexa e em constante mudança. Nossa equipe garante conformidade total — zero margem para passivos trabalhistas.</p>
+      <div class="fi-list">
+        <div class="fi"><div class="fi-d"></div><p>Processamento de folha mensal, 13º salário e férias</p></div>
+        <div class="fi"><div class="fi-d"></div><p>Admissões, demissões e homologações</p></div>
+        <div class="fi"><div class="fi-d"></div><p>eSocial, CAGED, RAIS e obrigações acessórias</p></div>
+        <div class="fi"><div class="fi-d"></div><p>Controle de ponto, banco de horas e benefícios</p></div>
+        <div class="fi"><div class="fi-d"></div><p>FGTS, INSS e provisões trabalhistas</p></div>
+        <div class="fi"><div class="fi-d"></div><p>Consultoria preventiva em relações trabalhistas</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABERTURA -->
+<section id="abertura">
+  <div class="stag reveal">Abertura & Legalização</div>
+  <h2 class="sh2 reveal">Da ideia ao CNPJ<br><em>com segurança jurídica.</em></h2>
+  <div class="abg">
+    <div class="acard reveal"><div class="anum">01</div><h3>Escolha do Regime</h3><p>Análise de MEI, Simples Nacional, Lucro Presumido ou Real com projeção real de carga fiscal.</p></div>
+    <div class="acard reveal"><div class="anum">02</div><h3>Registro & JUCESP</h3><p>Contrato social, CNPJ, JUCESP, licenças municipais e estaduais sem burocracia para você.</p></div>
+    <div class="acard reveal"><div class="anum">03</div><h3>Regularização Fiscal</h3><p>Inscrições, alvará, CNAE adequado e enquadramento no Simples Nacional.</p></div>
+    <div class="acard reveal"><div class="anum">04</div><h3>Alterações Contratuais</h3><p>Mudança de sócio, endereço, objeto social, transformação de MEI em LTDA e mais.</p></div>
+    <div class="acard reveal"><div class="anum">05</div><h3>Planejamento Tributário</h3><p>Fator R, comparativo de regimes, IRPF de sócios — pague menos, dentro da lei.</p></div>
+    <div class="acard reveal"><div class="anum">06</div><h3>Encerramento</h3><p>Baixa de CNPJ, dissolução de sociedade e regularização de pendências fiscais.</p></div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais">
+  <div class="stag stag-w reveal">Por que a STARQIA</div>
+  <h2 class="sh2 sh2-w reveal">O que nos separa<br>do <em>básico.</em></h2>
+  <div class="difg">
+    <div class="dcard reveal">
+      <div class="dico"><img src="ico-estrategia.png" alt="Contabilidade Consultiva"/></div>
+      <h4>Contabilidade Consultiva</h4><p>Não entregamos só balancete. Análise, diagnóstico e recomendação estratégica.</p>
+    </div>
+    <div class="dcard reveal">
+      <div class="dico"><img src="ico-administracao.png" alt="Tecnologia e IA"/></div>
+      <h4>Tecnologia & IA</h4><p>Automação de rotinas, integração com ERPs e bancos, dados em tempo real.</p>
+    </div>
+    <div class="dcard reveal">
+      <div class="dico"><img src="ico-relacionamento.png" alt="Atendimento Próximo"/></div>
+      <h4>Atendimento Próximo</h4><p>Escuta ativa e parceria real. Conhecemos seu negócio pelo nome, não pelo CNPJ.</p>
+    </div>
+    <div class="dcard reveal">
+      <div class="dico"><img src="ico-seguranca.png" alt="Segurança Total"/></div>
+      <h4>Segurança Total</h4><p>Zero passivos fiscais e trabalhistas. Processos auditados e documentados.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="ci-wrap">
+    <div class="stag stag-w reveal">Fale conosco</div>
+    <h2 class="sh2 sh2-w reveal">Pronto para uma contabilidade<br>que <em>trabalha por você?</em></h2>
+    <div class="cg">
+      <div class="cilist">
+        <div class="ci reveal"><div class="ci-ico">📍</div><div><h4>Localização</h4><p>Jundiaí — SP · Atendimento presencial e 100% remoto</p></div></div>
+        <div class="ci reveal"><div class="ci-ico">💬</div><div><h4>WhatsApp</h4><a href="https://wa.me/5511981590299" target="_blank">(11) 98159-0299</a></div></div>
+        <div class="ci reveal"><div class="ci-ico">📧</div><div><h4>E-mail</h4><a href="mailto:contato@starqia.com">contato@starqia.com</a></div></div>
+        <div class="ci reveal"><div class="ci-ico">⏰</div><div><h4>Horário</h4><p>Segunda a Sexta · 8h às 18h · WhatsApp com horário estendido</p></div></div>
+        <div class="ci reveal"><div class="ci-ico">🌐</div><div><h4>Atendimento</h4><p>Presencial em Jundiaí/SP · 100% digital para todo o Brasil</p></div></div>
+        <div class="ci reveal"><div class="ci-ico">💼</div><div><h4>BPO Financeiro</h4><a href="https://bpo.starqia.com" target="_blank">bpo.starqia.com</a></div></div>
+      </div>
+      <div class="cform reveal">
+        <h3>Solicite uma conversa gratuita</h3>
+        <div class="frow">
+          <div class="fg3"><label>Nome</label><input type="text" placeholder="Seu nome completo"/></div>
+          <div class="fg3"><label>WhatsApp</label><input type="tel" placeholder="(11) 00000-0000"/></div>
+        </div>
+        <div class="fg3"><label>E-mail</label><input type="email" placeholder="seu@email.com"/></div>
+        <div class="fg3"><label>Interesse</label>
+          <select>
+            <option value="">Selecione o serviço...</option>
+            <option>Gestão Contábil</option>
+            <option>BPO Financeiro</option>
+            <option>Folha de Pagamento / DP</option>
+            <option>Abertura de Empresa</option>
+            <option>Planejamento Tributário</option>
+            <option>Obrigações Fiscais</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="fg3"><label>Mensagem (opcional)</label><textarea placeholder="Conte sobre sua empresa e o que precisa..."></textarea></div>
+        <button class="cfbtn" id="fbtn">Enviar via WhatsApp →</button>
+      </div>
+    </div>
+    <div class="mapa reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d117913.35!2d-47.0300!3d-23.1864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf3b5567da7f81%3A0xa0b3a7186eb7!2sJundiaí%2C%20SP!5e0!3m2!1spt-BR!2sbr!4v1" width="100%" height="260" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ftop">
+    <div class="fb">
+      <img src="logo-nav.png" alt="STARQIA" style="height:44px;width:auto;display:block;margin-bottom:4px;"/>
+      <p>Transformamos dados contábeis em decisões estratégicas, liberando o potencial dos empresários para crescer com segurança e visão de futuro.</p>
+      <div class="social">
+        <a href="https://wa.me/5511981590299" target="_blank" class="soc">💬</a>
+        <a href="https://instagram.com/starqia" target="_blank" class="soc">📷</a>
+        <a href="https://linkedin.com/company/starqia" target="_blank" class="soc">💼</a>
+      </div>
+    </div>
+    <div class="fc"><h4>Serviços</h4><ul><li><a href="#gestao">Gestão Contábil</a></li><li><a href="#folha">Folha & DP</a></li><li><a href="#abertura">Abertura de Empresas</a></li><li><a href="#servicos">Planejamento Tributário</a></li><li><a href="https://bpo.starqia.com" target="_blank">BPO Financeiro</a></li></ul></div>
+    <div class="fc"><h4>Links Úteis</h4><ul><li><a href="https://esocial.fazenda.gov.br" target="_blank">eSocial</a></li><li><a href="https://www8.receita.fazenda.gov.br/SimplesNacional" target="_blank">Simples Nacional</a></li><li><a href="https://www.gov.br/mei" target="_blank">Portal MEI</a></li><li><a href="https://www.jucesponline.sp.gov.br" target="_blank">JUCESP Online</a></li><li><a href="https://cfc.org.br" target="_blank">CFC</a></li></ul></div>
+    <div class="fc"><h4>Contato</h4><ul><li><a href="https://wa.me/5511981590299">(11) 98159-0299</a></li><li><a href="mailto:contato@starqia.com">contato@starqia.com</a></li><li><a href="https://bpo.starqia.com" target="_blank">bpo.starqia.com</a></li><li><a href="#contato">Jundiaí — SP</a></li></ul></div>
+  </div>
+  <div class="fbot">
+    <p>© 2025 STARQIA Soluções Contábeis · Todos os direitos reservados</p>
+    <p>starqia.com · bpo.starqia.com</p>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{entries.forEach((e,i)=>{if(e.isIntersecting){e.target.style.transitionDelay=(i*.06)+'s';e.target.classList.add('visible');obs.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{document.getElementById('mnav').style.boxShadow=window.scrollY>60?'0 4px 28px rgba(0,0,0,.5)':'0 2px 20px rgba(0,0,0,.35)';});
+document.getElementById('mbtn').addEventListener('click',()=>{const m=document.getElementById('nmenu');const open=m.style.display==='flex';m.style.cssText=open?'':'display:flex;flex-direction:column;position:absolute;top:76px;left:0;right:0;background:#251B02;padding:18px 22px;gap:14px;z-index:99;border-top:1px solid rgba(255,255,255,.07)';});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}document.getElementById('nmenu').style.cssText='';});});
+document.getElementById('fbtn').addEventListener('click',()=>{const n=document.querySelector('input[type=text]').value||'...';const t=document.querySelector('input[type=tel]').value||'';const s=document.querySelector('select').value||'seus serviços';const msg=encodeURIComponent(`Olá! Meu nome é ${n}, tenho interesse em *${s}*. Meu contato: ${t}`);window.open(`https://wa.me/5511981590299?text=${msg}`,'_blank');});
+</script>
+</body>
+</html>
