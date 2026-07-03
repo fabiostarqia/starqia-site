@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="dark" />
+<title>Mensagem do Contador para 2026 — STARQIA</title>
+<meta name="description" content="Reforma Tributária, fiscalização, PIX, Simples Nacional e o foco de fiscalização em 2026 — leitura de F. Campos." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0C0B;
+    --panel:#121513;
+    --panel-2:#181C1A;
+    --line:#232823;
+    --text:#EDEFEC;
+    --muted:#8C948E;
+    --brand:#00AA4F;
+    --brand-dim:rgba(0,170,79,.14);
+    --brand-line:rgba(0,170,79,.35);
+    --mono:'Space Mono', ui-monospace, monospace;
+    --sans:'Montserrat', system-ui, sans-serif;
+    --max:760px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit }
+  .wrap{ max-width:var(--max); margin:0 auto; padding:18px 16px 60px; }
+
+  .topbar{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:12px; padding:12px 2px 18px; border-bottom:1px solid var(--line);
+  }
+  .brand{ display:flex; align-items:center; gap:10px; text-decoration:none; }
+  .brand .mark{
+    font-family:var(--mono); font-weight:700; font-size:14px;
+    color:var(--brand); border:1px solid var(--brand-line);
+    background:var(--brand-dim); padding:6px 8px; border-radius:6px;
+    letter-spacing:.04em;
+  }
+  .brand .name{ font-weight:700; font-size:14px; letter-spacing:.02em; }
+  .back{
+    font-family:var(--mono); font-size:12px; color:var(--muted);
+    text-decoration:none; border:1px solid var(--line); padding:6px 10px;
+    border-radius:999px; white-space:nowrap;
+  }
+  .back:hover{ color:var(--brand); border-color:var(--brand-line); }
+
+  .eyebrow{
+    font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--brand); display:flex; align-items:center; gap:8px; margin-top:22px;
+  }
+  .eyebrow .dot{ width:6px; height:6px; border-radius:50%; background:var(--brand);
+    box-shadow:0 0 8px 1px var(--brand); }
+
+  h1{
+    font-family:var(--sans); font-weight:800; font-size:28px; line-height:1.18;
+    letter-spacing:-.01em; margin:10px 0 8px;
+  }
+  .subtitle{ color:var(--muted); font-size:14.5px; margin:0 0 16px; }
+
+  .meta-row{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+  .meta-row span{
+    font-family:var(--mono); font-size:11px; color:var(--muted);
+    border:1px solid var(--line); border-radius:6px; padding:4px 8px;
+  }
+
+  .disclaimer{
+    border-left:3px solid var(--brand);
+    background:var(--panel);
+    border-radius:0 8px 8px 0;
+    padding:12px 14px;
+    font-size:13px;
+    color:#C7CCC8;
+    margin-bottom:20px;
+  }
+  .disclaimer b{ color:var(--text); }
+
+  /* scanning line — signature element, subtle, respects reduced motion */
+  .scan{
+    position:relative; height:2px; width:100%; overflow:hidden;
+    background:var(--line); border-radius:2px; margin:20px 0 26px;
+  }
+  .scan i{
+    position:absolute; top:0; left:-30%; height:100%; width:30%;
+    background:linear-gradient(90deg, transparent, var(--brand), transparent);
+    animation: scan 3.4s linear infinite;
+  }
+  @media (prefers-reduced-motion: reduce){ .scan i{ animation:none; left:0; width:100%; opacity:.5; } }
+  @keyframes scan{ from{ left:-30% } to{ left:100% } }
+
+  nav.toc{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px;
+    padding:14px 16px 8px; margin-bottom:24px;
+  }
+  nav.toc h2{
+    font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 10px; font-weight:400;
+  }
+  nav.toc ol{ margin:0; padding-left:0; list-style:none; }
+  nav.toc li{ margin:0; border-top:1px solid var(--line); }
+  nav.toc li:first-child{ border-top:none; }
+  nav.toc a{
+    display:flex; gap:10px; align-items:baseline; padding:9px 0;
+    text-decoration:none; font-size:13.5px; color:#D6D9D6;
+  }
+  nav.toc a:hover{ color:var(--brand); }
+  nav.toc .n{ font-family:var(--mono); color:var(--brand); font-size:12px; flex:0 0 auto; }
+
+  section{ margin-top:22px; scroll-margin-top:16px; }
+  .sec-h{ display:flex; align-items:baseline; gap:12px; margin-bottom:10px; }
+  .sec-h .num{
+    font-family:var(--mono); font-size:12px; color:var(--brand);
+    border:1px solid var(--brand-line); background:var(--brand-dim);
+    padding:3px 7px; border-radius:5px; flex:0 0 auto;
+  }
+  .sec-h h3{ font-size:17px; font-weight:700; margin:0; letter-spacing:-.005em; }
+
+  .sec-b p{ margin:0 0 12px; font-size:15px; color:#DADDD9; }
+  .sec-b p:last-child{ margin-bottom:0; }
+  .sec-b strong{ color:var(--text); }
+
+  .quote{
+    margin:14px 0; padding:14px 15px;
+    border-left:3px solid var(--text);
+    background:var(--panel-2); border-radius:0 8px 8px 0;
+    font-weight:600; font-size:14.5px; color:#F1F2EF;
+  }
+  .callout{
+    margin:14px 0; padding:14px 15px;
+    border:1px solid var(--brand-line); background:var(--brand-dim);
+    border-radius:8px; font-size:14px; color:#C9F0D8;
+  }
+  .callout strong{ color:#E8FBEE; }
+
+  ul, ol.list{ margin:0 0 12px 20px; padding:0; }
+  li{ margin:6px 0; font-size:15px; color:#DADDD9; }
+
+  hr.div{ border:none; border-top:1px solid var(--line); margin:30px 0; }
+
+  .sig-box{
+    margin-top:30px; padding:18px; border:1px solid var(--line);
+    border-radius:12px; background:var(--panel);
+  }
+  .sig{ font-weight:800; font-size:16px; }
+  .sig .role{ font-family:var(--mono); font-size:11px; color:var(--muted); margin-top:4px; }
+
+  footer.pagefoot{
+    margin-top:26px; padding-top:18px; border-top:1px solid var(--line);
+    font-family:var(--mono); font-size:11px; color:var(--muted);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  @media (min-width:720px){
+    .wrap{ padding:26px 18px 70px; }
+    h1{ font-size:34px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <a class="brand" href="../index.html"><img src="data:image/png;base64,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" alt="STARQIA" style="height:36px;width:auto;"/></a>
+    <a class="back" href="../blog/">← blog</a>
+  </div>
+
+  <div class="eyebrow"><span class="dot"></span>Comunicado · 2026</div>
+  <h1>Mensagem do Contador para 2026</h1>
+  <p class="subtitle">O cenário real: Reforma Tributária, fiscalização, PIX, Simples Nacional e o foco de fiscalização em 2026.</p>
+
+  <div class="meta-row">
+    <span>Autor: Fábio Campos</span>
+    <span>Leitura: ~5 min</span>
+    <span>Categoria: Opinião</span>
+  </div>
+
+  <div class="disclaimer">
+    <b>Nota:</b> contém opinião pessoal, orientação técnica, sarcasmo e ironia. Pode compartilhar à vontade.
+  </div>
+
+  <div class="scan"><i></i></div>
+
+  <nav class="toc" aria-label="Sumário">
+    <h2>Sumário</h2>
+    <ol>
+      <li><a href="#cap1"><span class="n">01</span> Por que estou falando disso</a></li>
+      <li><a href="#cap2"><span class="n">02</span> Reforma Tributária: ideia boa, execução é que costuma pesar</a></li>
+      <li><a href="#cap3"><span class="n">03</span> O cerco vem fechando e não é de hoje</a></li>
+      <li><a href="#cap4"><span class="n">04</span> Simples Nacional também entra na mira</a></li>
+      <li><a href="#cap5"><span class="n">05</span> "Imposto do PIX" não existe. Fiscalização de montante, sim.</a></li>
+      <li><a href="#cap6"><span class="n">06</span> Os alvos reais de fiscalização em 2026</a></li>
+      <li><a href="#cap7"><span class="n">07</span> Você está no radar?</a></li>
+    </ol>
+  </nav>
+
+  <article>
+
+    <section id="cap1">
+      <div class="sec-h"><span class="num">01</span><h3>Por que estou falando disso</h3></div>
+      <div class="sec-b">
+        <p>Diante dos desafios do universo empresarial com a Reforma Tributária e regras mais rígidas — e, na minha opinião, diante de um governo com viés arrecadatório que, em vez de combater desperdícios com eficiência e enxugar gastos, prefere colocar em prática todas as medidas arrecadatórias possíveis — estamos entrando num período de mudança pesada e acelerada.</p>
+        <p>E o que pouca gente enxerga é o seguinte: estão despejando novos sistemas e novas exigências de uma só vez, e isso aumenta drasticamente a demanda e os processos do contador. Muitas vezes o empresário nem imagina do que se trata. Muitas vezes o empresário nem imagina que o Contador pode atuar no apoio da operação e dos negócios, além do cumprimento de regras.</p>
+        <p>E ainda assim quase nunca a gente consegue repassar o custo destes novos procedimentos e obrigações em forma de honorários na mesma velocidade que o governo as implementa.</p>
+        <p>Esta "notícia" é um recado meu, Fábio, para clientes e amigos próximos. Compartilhem e me procurem para dúvidas e bate-papo.</p>
+      </div>
+    </section>
+
+    <section id="cap2">
+      <div class="sec-h"><span class="num">02</span><h3>Reforma Tributária: ideia boa, execução é que costuma pesar</h3></div>
+      <div class="sec-b">
+        <p>Fato é que a Reforma Tributária, assim como várias obrigações e legislações que estão entrando em vigor, já eram conhecidas e discutidas no universo contábil/fiscal há tempos.</p>
+        <p>A tal "Reforma sobre o Consumo" é um projeto antigo, colocado em pauta desde 2019, tentando resumir e modernizar décadas de estrutura tributária. Na minha opinião, isso ainda será amplamente revisado, discutido, emendado e retalhado — como a gente sempre viu acontecer.</p>
+        <p>Afinal, é uma discussão complexa: refazer em poucos anos uma lógica construída ao longo de décadas já é difícil; fazer isso com o sistema antigo rodando ao mesmo tempo é mais difícil ainda.</p>
+        <p>A ideia do imposto sobre valor agregado (IVA) — tributar somente a parte que a empresa "adiciona" ao produto/serviço — é válida, usada em países da América do Norte e Europa, e precisa ser introduzida e entendida no nosso sistema nacional.</p>
+
+        <div class="callout"><strong>Pé no chão:</strong> no curto prazo, a tendência é mais trabalho e mais chance de erro; no longo prazo, se bem feita, pode dar previsibilidade.</div>
+
+        <p>E ainda tem o tal do <strong>split payment</strong>: pelo que a Receita já vem sinalizando, começa em <strong>2027</strong> de forma gradual e <strong>facultativa no início</strong> para o mercado B2B. Numa segunda fase, depois que houver "maturidade do mercado" vira obrigatório, e na terceira fase será expandido às vendas para consumidor final (B2C). Essas fases 2 e 3 não têm previsão de data, mas sabem como é: depois que a Receita testar e ver que funciona, vai virar obrigatório rapidinho.</p>
+        <p>Fato é que a nossa geração é quem vai pagar as contas dessas transições e ajustes para que as próximas possam sobreviver.</p>
+      </div>
+    </section>
+
+    <section id="cap3">
+      <div class="sec-h"><span class="num">03</span><h3>O cerco vem fechando e não é de hoje</h3></div>
+      <div class="sec-b">
+        <p>Desde a entrada do eSocial, eu venho dizendo com mais ênfase que Governo e Receita Federal vêm fechando o cerco sobre a iniciativa privada para aumentar arrecadação e combater sonegação.</p>
+        <p>Eles sempre tiveram ferramentas de cruzamento de dados que eliminam qualquer margem para amadorismo. Como eu sempre disse em nossas conversas: "só não usam plenamente porque não querem." Mas o sentimento é que agora eles decidiram usar cada vez mais.</p>
+      </div>
+    </section>
+
+    <section id="cap4">
+      <div class="sec-h"><span class="num">04</span><h3>Simples Nacional também entra na mira</h3></div>
+      <div class="sec-b">
+        <p>As empresas do Simples Nacional (que de simples só tem o nome) também entram na mira. Obrigações de regimes maiores podem começar a ser replicadas para micro e pequenas, nem que seja por via indireta: sistema, integração e controle.</p>
+        <p>Para 2027, vamos precisar estudar caso a caso quem ainda faz sentido no Simples.</p>
+        <p>Para empresas B2C (quando seu cliente é o consumidor final), de modo geral, o entendimento é que o Simples tende a continuar sendo uma boa opção.</p>
+        <p>Para os demais casos, teremos que avaliar tecnicamente a escolha mais benéfica.</p>
+
+        <div class="callout"><strong>Nota:</strong> o comprador Lucro Presumido/Real pode preferir fornecedor fora do Simples para tomar crédito, e isso mexe em preço e competitividade.</div>
+      </div>
+    </section>
+
+    <section id="cap5">
+      <div class="sec-h"><span class="num">05</span><h3>"Imposto do PIX" não existe. Fiscalização de montante, sim.</h3></div>
+      <div class="sec-b">
+        <p><strong>O PIX vai ser fiscalizado?</strong></p>
+        <p>Veja só: PIX, débito, crédito, transferências, TED, DOC… tudo isso compõe o total movimentado informado desde 2015 pela <strong>e-Financeira</strong>. É por aí que nascem os Informes de Rendimentos (saldos, aplicações, dívidas). A Receita apenas atualizou o texto para deixar claro que o PIX compõe essa fotografia (pode ser também para alinhar instituição que não informava direito).</p>
+        <p>Mas aqui está o ponto que pouca gente sabe: o banco somente informa o <strong>TOTAL</strong> de entradas e saídas. Não é a listagem com nome e CPF de cada transação, é o <strong>montante</strong>.</p>
+        <p>O alerta maior vai para comércio e indústria (ICMS): Estados podem ter mais visibilidade sobre transações por declarações específicas, como a <strong>DIMP</strong> (Declaração das Informações sobre os Meios de Pagamento).</p>
+        <p>E isso conversa com um fato antigo e bem conhecido: quando o que maquininha/plataformas informam como venda é maior do que o que sai de nota, uma hora a conta chega. Quem operou em marketplace acompanhou as mudanças: antes tolerava-se não emitir nota até uma certa quantia anual, hoje é obrigatória desde o cadastro na plataforma.</p>
+      </div>
+    </section>
+
+    <section id="cap6">
+      <div class="sec-h"><span class="num">06</span><h3>Os alvos reais de fiscalização em 2026</h3></div>
+      <div class="sec-b">
+        <p>O que eu sempre bati na tecla é: é <strong>VARIAÇÃO PATRIMONIAL</strong>. Quem possui patrimônios incompatíveis com as rendas e informações cruzadas. Esses sistemas tornam essa análise mais automática e mais fácil.</p>
+        <p>E o que a Receita quer de nós empresários e contadores com esse sistema gigante e muito mais sofisticado que os de países de primeiro mundo? <strong>TRANSPARÊNCIA.</strong> Um único portal que consolide as informações do contribuinte. Uma única base, uma única "verdade" do contribuinte. Tudo conversando: nota, folha, banco, plataforma, cadastro, declaração.</p>
+
+        <div class="quote">(o inverso poderia ser verdadeiro, que a classe política fosse TRANSPARENTE no nível que eles exigem das nossas contabilidades!)</div>
+
+        <p><strong>Significa que ela atuará ativamente para fiscalizar e autuar nossas contas bancárias e nossos negócios?</strong> Não é bem assim.</p>
+
+        <p>A Receita atua com meios ativos e passivos:</p>
+        <ol class="list">
+          <li><strong>Ativos</strong> (automáticos e por malha): cruzamentos, malhas, intimações para autorregularização, divergência entre declarado x cruzado.</li>
+          <li><strong>Passivos</strong>: denúncia, provocação por outro órgão/ente, investigação decorrente de operação maior. Inclusive o braço <strong>coercitivo</strong>, que entra quando o contribuinte ignora alertas, não se autorregulariza, ou quando há indício de fraude deliberada. Aí já vira caso de <strong>autuação, multa e crédito tributário</strong>.</li>
+          <li>E existe por fim um <strong>planejamento estratégico anual</strong> apresentado pela Receita Federal, com os principais focos, para atuação da Fiscalização Ativa e Coercitiva. Temas e setores onde o órgão concentrará seus esforços.</li>
+        </ol>
+
+        <p><strong>Minha opinião sobre 2026:</strong> o foco fiscalizatório vai acompanhar o que está mais quente e mais fácil de cruzar com tecnologia e dados. Eu apostaria que o radar vai ficar em cima de:</p>
+        <ul>
+          <li>Reforma Tributária e ajustes de emissão/cadastro (erro operacional em massa dá muito "resultado" pra fiscalização);</li>
+          <li>aluguéis por temporada / short stay;</li>
+          <li>tributação de altas rendas, lucros e planejamentos agressivos;</li>
+          <li>benefícios fiscais e quem os utiliza indevidamente;</li>
+          <li>fintechs, bets e arranjos de pagamento;</li>
+          <li>criptoativos;</li>
+          <li>saídas fiscais e evasão de divisas;</li>
+          <li>devedores contumazes (grandes devedores que utilizam de fraudes e do não pagamento de impostos para alavancagem financeira patrimonial).</li>
+        </ul>
+
+        <p>Engraçado que pra alguns temas muito "barulhentos" e politicamente espinhosos — tipo Banco Master, emenda de orçamento secreto, roubo de aposentados, etc. — eu não apostaria que o foco vai ser tão cirúrgico assim. Não por falta de assunto… mas porque aí entra o velho filtro que meu saudoso pai dizia: falta de interesse e conveniência política. kkk</p>
+      </div>
+    </section>
+
+    <section id="cap7">
+      <div class="sec-h"><span class="num">07</span><h3>Você está no radar?</h3></div>
+      <div class="sec-b">
+        <p>Eu acredito que conheço bem meus clientes — muitos viraram amigos e companheiros de jornada — e eu brinco com o seguinte:</p>
+
+        <div class="quote">"Você está lavando dinheiro, financiando crime organizado, vendendo ilícitos ou propagando o Tigrinho?" Se não… a Receita provavelmente não tem tanto interesse pessoal em você e na sua empresa.</div>
+
+        <p>Mas para os desafios reais do negócio — tributação, precificação, endividamento, processos, emissão correta, consistência de informação — a gente precisa manter o papo em dia. Meios e sistemas de controle eles têm. A dúvida é: vão fazer isso funcionar 100% da noite para o dia? Eu acredito que não. E eu também acho que tem muita gente em Brasília que não gostaria disso. kkk</p>
+
+        <div class="callout">Tenho um amigo que diz que <strong>"Médico, Contador e Advogado são as três profissões de quem você não pode esconder nada"</strong>. Minha intenção aqui não é assustar, é apoiar, preparar e ajustar a rota.</div>
+
+        <p>Minhas portas (e meu WhatsApp) estão abertos. Quem quiser conversar mais, é só me chamar. Vamos pra cima que o ano está só começando.</p>
+        <p>Desejo um bom início de ano a todos e um excelente 2026 para todos nós!</p>
+      </div>
+    </section>
+
+  </article>
+
+  <div class="sig-box">
+    <div class="sig">Fábio Campos</div>
+    <div class="role">CONTADOR · STARQIA SOLUÇÕES CONTÁBEIS</div>
+  </div>
+
+  <footer class="pagefoot">
+    <span>© STARQIA — soluções contábeis</span>
+    <span>starqia.com</span>
+  </footer>
+
+</div>
+</body>
+</html>
